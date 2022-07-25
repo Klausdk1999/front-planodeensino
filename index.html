@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soma dos Inversos</title>
+  <link href="assets/stylesheet/reset.css" rel="stylesheet">
+  <link href="assets/stylesheet/style.css" rel="stylesheet">
+</head>
+
+<body>
+  
+  <img src="assets/imagens/logo.png" class="logo">
+  
+  <h1>Klaus e Bruno - Disciplina Integração de Sistemas para Automação</h1>
+  
+  <h1>Banco de dados: Planos de Ensino</h1>
+  
+  <main>
+    <h1>Criar Plano de Ensino</h1>
+    <div class="entrada-mensagem inputs">
+      <input placeholder="Insira aqui o JSON com os dados" class="input-number1">
+    </div>
+    <div class="row">
+      <button class ="button" onclick="postOne()">
+        <ion-icon class ="button" name="paper-plane-outline"></ion-icon>
+      </button>    
+    </div>
+    <h1>Buscar Plano de Ensino</h1>
+    <div class="entrada-mensagem inputs">
+      <input placeholder="Disciplina que deseja buscar" class="input-number1">
+    </div>
+    <div class="row">
+      <button class ="button" onclick="getOne()">
+        <ion-icon class ="button" name="paper-plane-outline"></ion-icon>
+      </button>
+    </div>
+  </main>
+  <div>
+    <button class ="button red" onclick="getAll()">
+      <h1>Todos os Planos de Ensino</h1>
+    </button>
+  </div>
+  <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="assets/javascript/script.js"></script>
+</body>
+
+</html>

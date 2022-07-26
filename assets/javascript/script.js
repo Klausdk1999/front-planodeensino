@@ -1,38 +1,49 @@
-function enviarMensagem() {
+import axios from "axios";
 
+function postOne() {
+  
   const input1 = document.querySelector(".input-number1");
-  const number1 = input1.value;
+  const json = input1.value;
+
+  input1.value = "";
+  
+  if(json === "") return;
+
+  console.log(json);
+
+  const requisicao = axios.post("http://54.163.28.247/inserir_banco", json);
+
+  requisicao.then(mostraResposta);
+  requisicao.catch(mostraStatus);
+}
+
+function getOne() {
 
   const input2 = document.querySelector(".input-number2");
   const number2 = input2.value;
 
-  input1.value = "";
   input2.value = "";
-
-  if(number1 === "") return;
-
+ 
   if(number2 === "") return;
 
-  const dados = {
-    number1: number1,
-    number2: number2,
-  };
+  const requisicao = axios.get(`http://54.163.28.247/busca_no_banco/${number2}`);
 
-  console.log(dados);
-
-  const requisicao = axios.post("https://soma-dos-inversos-api.vercel.app/somainversos", dados);
   requisicao.then(mostraResposta);
   requisicao.catch(mostraStatus);
 }
 
-function getStatus() {
-  const requisicao = axios.get("https://soma-dos-inversos-api.vercel.app/status");
+function getAll() {
+
+  const requisicao = axios.get("http://54.163.28.247/todos_banco");
+
   requisicao.then(mostraResposta);
   requisicao.catch(mostraStatus);
 }
+
 function mostraStatus(resposta){
   alert(resposta);
 }
+
 function mostraResposta(resposta){
   console.log(resposta);
   alert("A soma dos inversos entre os números digitados é: "+resposta.data);

@@ -1,6 +1,4 @@
-import axios from "axios";
-
-function postOne() {
+function postOne(){
   
   const input1 = document.querySelector(".input-number1");
   const json = input1.value;
@@ -11,13 +9,13 @@ function postOne() {
 
   console.log(json);
 
-  const requisicao = axios.post("http://54.163.28.247/inserir_banco", json);
+  const requisicao = axios.post("http://127.0.0.1:5000/inserir_banco", json);
 
   requisicao.then(mostraResposta);
   requisicao.catch(mostraStatus);
 }
 
-function getOne() {
+function getOne(){
 
   const input2 = document.querySelector(".input-number2");
   const number2 = input2.value;
@@ -26,15 +24,15 @@ function getOne() {
  
   if(number2 === "") return;
 
-  const requisicao = axios.get(`http://54.163.28.247/busca_no_banco/${number2}`);
+  const requisicao = axios.get(`http://127.0.0.1:5000/busca_no_banco/${number2}`);
 
   requisicao.then(mostraResposta);
   requisicao.catch(mostraStatus);
 }
 
-function getAll() {
+function getAll(){
 
-  const requisicao = axios.get("http://54.163.28.247/todos_banco");
+  const requisicao = axios.get("http://127.0.0.1:5000/todos_banco",null);
 
   requisicao.then(mostraResposta);
   requisicao.catch(mostraStatus);
@@ -46,5 +44,5 @@ function mostraStatus(resposta){
 
 function mostraResposta(resposta){
   console.log(resposta);
-  alert("A soma dos inversos entre os números digitados é: "+resposta.data);
+  alert(resposta.data);
 }
